@@ -7,6 +7,7 @@ import {map} from 'lodash';
 import New from './src/components/New';
 import axios from 'axios';
 import {API_HOST} from './src/utils/constants';
+import NewComponent from './src/components/NewComponent';
 
 export default function App() {
 
@@ -47,9 +48,11 @@ useEffect(()=>{
   return <SafeAreaView style={styles.contenedor}>
     <TouchableOpacity style={styles.refrescar}  onPress={() => setTrigger(!trigger)}>
     <Text style={styles.title}>Ultimas noticias</Text>
+
+  
     </TouchableOpacity>
     <ScrollView style={styles.scrollview}>
-     {   map(news, (data)=>(<New key={data.id} data={data}/>))}
+     {   map(news, (data)=>(<NewComponent key={data.id} data={data}/>))}
     </ScrollView>
   </SafeAreaView>;
 }
